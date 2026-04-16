@@ -9,10 +9,11 @@ import {
   Phone,
   Sparkles,
 } from "lucide-react";
+import { images } from "./imageImporter";
 
 export default function HouseShifting() {
   const waHref =
-    "https://wa.me/+966561385512?text=" +
+    "https://wa.me/+9660565642655?text=" +
     encodeURIComponent("السلام عليكم، أبي أستفسر عن خدمة نقل العفش / نقل المنزل.");
 
   const features = [
@@ -75,7 +76,7 @@ export default function HouseShifting() {
           <div className="grid lg:grid-cols-2 lg:items-stretch">
             <div className="relative min-h-[220px] sm:min-h-[280px] lg:min-h-[420px]">
               <Image
-                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1400"
+                src={images.houseShift1}
                 alt="شاحنة نقل عفش ومنزل جاهز للتسليم"
                 className="object-cover"
                 fill
@@ -124,7 +125,7 @@ export default function HouseShifting() {
                   <MessageCircle className="h-5 w-5 shrink-0" />
                 </a>
                 <a
-                  href="tel:+966561385512"
+                  href="tel:+9660565642655"
                   className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full border-2 border-emerald-600 bg-white px-5 py-3 text-base font-bold text-emerald-700 transition hover:bg-emerald-50 active:scale-[0.98] sm:min-w-[180px] sm:flex-none"
                 >
                   <Phone className="h-5 w-5 shrink-0" />

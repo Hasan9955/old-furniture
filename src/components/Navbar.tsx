@@ -23,7 +23,8 @@ export default function Navbar() {
             className="shrink-0 text-xl font-black tracking-tight text-emerald-600 sm:text-2xl md:text-3xl"
             onClick={() => setOpen(false)}
           >
-            أثاث<span className="text-amber-500">الدمام</span>
+         سكراب<span className="text-amber-500">الدمام</span>
+         {/* أثاث<span className="text-amber-500">الدمام</span> */}
           </Link>
 
           <div className="hidden items-center gap-8 text-lg font-semibold text-slate-700 md:flex">
@@ -40,16 +41,16 @@ export default function Navbar() {
 
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <a
-              href="tel:+966561385512"
+              href="tel:+9660565642655"
               className="hidden items-center gap-2 font-bold text-slate-700 transition-colors hover:text-emerald-600 lg:flex"
             >
               <Phone className="h-5 w-5 shrink-0" />
               <span dir="ltr" className="text-sm xl:text-base">
-                +966561385512
+                +9660565642655
               </span>
             </a>
             <a
-              href="https://wa.me/+966561385512"
+              href="https://wa.me/+9660565642655"
               className="hidden items-center gap-2 rounded-full bg-emerald-500 px-4 py-2.5 font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-emerald-600 hover:shadow-lg sm:flex"
             >
               <MessageCircle className="h-5 w-5 shrink-0" />
@@ -92,15 +93,15 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="tel:+966561385512"
+            href="tel:+9660565642655"
             className="mt-2 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-slate-100 px-4 py-3 font-bold text-slate-800"
             dir="ltr"
           >
             <Phone className="h-5 w-5 shrink-0" />
-            +966561385512
+            +9660565642655
           </a>
           <a
-            href="https://wa.me/+966561385512"
+            href="https://wa.me/+9660565642655"
             className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-emerald-500 px-4 py-3 font-bold text-white"
             onClick={() => setOpen(false)}
           >

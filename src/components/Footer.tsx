@@ -11,7 +11,9 @@ export default function Footer() {
               href="/"
               className="mb-4 block text-2xl font-black tracking-tight text-emerald-500 sm:mb-6 sm:text-3xl"
             >
-              أثاث<span className="text-amber-500">الدمام</span>
+              
+         سكراب<span className="text-amber-500">الدمام</span>
+              {/* أثاث<span className="text-amber-500">الدمام</span> */}
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 sm:text-base">
               أفضل محل شراء أثاث مستعمل في الدمام والمنطقة الشرقية. نعطيك أفضل
@@ -57,14 +59,14 @@ export default function Footer() {
             </h4>
             <div className="space-y-3 text-sm sm:space-y-4 sm:text-base">
               <a
-                href="tel:+966561385512"
+                href="tel:+9660565642655"
                 className="flex items-center gap-3 transition-colors hover:text-emerald-400"
               >
                 <Phone className="h-5 w-5 shrink-0 text-emerald-500" />
-                <span dir="ltr">+966561385512</span>
+                <span dir="ltr">+9660565642655</span>
               </a>
               <a
-                href="https://wa.me/+966561385512"
+                href="https://wa.me/+9660565642655"
                 className="flex items-center gap-3 transition-colors hover:text-emerald-400"
               >
                 <MessageCircle className="h-5 w-5 shrink-0 text-emerald-500" />
@@ -76,8 +78,9 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-slate-800 pt-6 text-center text-xs text-slate-500 sm:flex-row sm:text-left sm:text-sm">
           <p>
-            جميع الحقوق محفوظة &copy; {new Date().getFullYear()} - أثاث الدمام
-          </p>
+  جميع الحقوق محفوظة &copy; {new Date().getFullYear()} 
+  <span> - </span> سكراب الدمام   
+</p>
           <p>تصميم وتطوير بكل ❤️</p>
         </div>
       </div>

@@ -77,11 +77,11 @@ export default function About() {
                 دق علينا الحين ومندوبنا يوصلك لمعاينة أثاثك مجاناً.
               </p>
               <a
-                href="tel:+966561385512"
+                href="tel:+9660565642655"
                 className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 py-3.5 text-base font-bold text-white transition-colors hover:bg-emerald-600 sm:py-4 sm:text-lg"
               >
                 <Phone className="h-5 w-5 shrink-0" />
-                اتصل الآن: <span dir="ltr">+966561385512</span>
+                اتصل الآن: <span dir="ltr">+9660565642655</span>
               </a>
             </div>
           </div>

@@ -1,46 +1,82 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Bed, Tv, Coffee, Cpu, Sparkles } from "lucide-react";
+import { Cpu, Sparkles, Coins, Weight, Construction, Shield, Zap, Pipette, Layout, Wind, Activity } from "lucide-react";
+import { images } from "./imageImporter";
+ 
 
 export default function Services() {
   const services = [
-    {
-      title: "شراء الأثاث المنزلي المستعمل",
-      description:
-        "نشتري كل أنواع الأثاث المنزلي والمكتبي، من غرف نوم ومجالس وطاولات، ونعطيك حقها وزيادة.",
-      icon: <Bed className="h-6 w-6 text-emerald-600" />,
-      image:
-        "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=600",
-      keywords: "شراء أثاث مستعمل الدمام",
-    },
-    {
-      title: "شراء الأجهزة الكهربائية",
-      description:
-        "نشتري الثلاجات، الغسالات، والشاشات والمكيفات المستعملة، ونقدم لك تقييم عالي يرضيك.",
-      icon: <Tv className="h-6 w-6 text-emerald-600" />,
-      image:
-        "https://plus.unsplash.com/premium_photo-1664371206019-a82cb8dabb15?auto=format&fit=crop&q=80&w=600",
-      keywords: "شراء أجهزة مستعملة الدمام",
-    },
-    {
-      title: "شراء المطابخ والأدوات المنزلية",
-      description:
-        "عندك مطبخ أو أدوات منزلية تبي تبيعها؟ حنا نشتريها منك بأفضل أسعار السوق بدون ما تبخس حقها.",
-      icon: <Coffee className="h-6 w-6 text-emerald-600" />,
-      image:
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600",
-      keywords: "شراء مطابخ وأدوات منزلية",
-    },
-    {
-      title: "شراء الألمنيوم والخردة",
-      description:
-        "نشتري خردة الألمنيوم والنوافذ والأبواب القديمة. نستلمها منك من مكانك وبأسعار ممتازة.",
-      icon: <Cpu className="h-6 w-6 text-emerald-600" />,
-      image:
-        "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&q=80&w=600",
-      keywords: "شراء خردة الألمنيوم الدمام",
-    },
-  ];
+  {
+    title: "شراء سكراب المكيفات",
+    description: "نشتري جميع أنواع المكيفات التالفة والقديمة (سبليت، شباك، مركزي) بأفضل الأسعار وبأي حالة كانت.",
+    icon: <Wind className="h-6 w-6 text-emerald-600" />,
+    image: images.electric1, // ضع مسار الصورة المحلي هنا
+    keywords: "شراء سكراب مكيفات، مكيفات تالفة للبيع",
+  },
+  {
+    title: "سكراب الألمنيوم",
+    description: "نشتري مخلفات الألمنيوم من نوافذ، أبواب، وهياكل، ونقوم بالوزن والتقييم بكل أمانة في موقعك.",
+    icon: <Layout className="h-6 w-6 text-emerald-600" />,
+    image: images.aluminum1, // ضع مسار الصورة المحلي هنا
+    keywords: "شراء ألمنيوم مستعمل، سكراب ألمنيوم",
+  },
+  {
+    title: "سكراب النحاس الأصفر (Brass)",
+    description: "نشتري جميع قطع النحاس الأصفر، المواسير، والقطع الميكانيكية بأسعار منافسة جداً.",
+    icon: <Pipette className="h-6 w-6 text-emerald-600" />,
+    image: images.brassScrap2, // ضع مسار الصورة المحلي هنا
+    keywords: "شراء نحاس أصفر， سكراب براس",
+  },
+  {
+    title: "سكراب المحولات الكهربائية",
+    description: "متخصصون في شراء المحولات الكهربائية القديمة والمعطلة (Transformers) بجميع أحجامها وقدراتها.",
+    icon: <Zap className="h-6 w-6 text-emerald-600" />,
+    image: images.electric2, 
+    keywords: "شراء محولات كهربائية سكراب، محولات تالفة",
+  },
+  {
+    title: "شراء المولدات الكهربائية",
+    description: "نشتري مولدات الطاقة المستعملة والمعطلة، سواء كانت مولدات مصانع أو مباني، ونوفر خدمة النقل.",
+    icon: <Activity className="h-6 w-6 text-emerald-600" />,
+    image: images.generator2, 
+    keywords: "سكراب مولدات， شراء ماطور كهرباء مستعمل",
+  },
+  {
+    title: "سكراب الستانلس ستيل",
+    description: "نشتري مخلفات الستانلس ستيل من أدوات مطاعم، خزانات، وهياكل بأسعار السوق الحالية.",
+    icon: <Shield className="h-6 w-6 text-emerald-600" />,
+    image: images.stainless, 
+    keywords: "شراء ستانلس ستيل، سكراب حديد مقاوم للصدأ",
+  },
+  {
+    title: "سكراب الإنشاءات والمباني",
+    description: "نشتري مخلفات الهدم والمواقع الإنشائية من حديد تسليح وهياكل معدنية وتخليص الموقع بالكامل.",
+    icon: <Construction className="h-6 w-6 text-emerald-600" />,
+    image: images.construction, 
+    keywords: "سكراب بناء، حديد تسليح مستعمل، شراء مخلفات هدم",
+  },
+  {
+    title: "السكراب الإلكتروني والكهربائي",
+    description: "نشتري الأسلاك، اللوحات الإلكترونية، والقطع الكهربائية التالفة بأفضل تقييم لوزن النحاس والمعادن.",
+    icon: <Cpu className="h-6 w-6 text-emerald-600" />,
+    image: images.electric4, 
+    keywords: "سكراب إلكترونيات، شراء أسلاك كهرباء",
+  },
+  {
+    title: "سكراب النحاس الأحمر (Copper)",
+    description: "نشتري النحاس الأحمر النقي، الكابلات المقشرة، ومواسير التبريد بأعلى سعر للكيلو في السوق.",
+    icon: <Coins className="h-6 w-6 text-emerald-600" />,
+    image: images.copper, 
+    keywords: "شراء نحاس أحمر، كابلات نحاس سكراب",
+  },
+  {
+    title: "سكراب الحديد",
+    description: "نشتري كميات الحديد الضخمة، الهياكل، والصفائح، مع توفر شاحنات مخصصة للتحميل والنقل الفوري.",
+    icon: <Weight className="h-6 w-6 text-emerald-600" />,
+    image: images.iron, 
+    keywords: "شراء حديد سكراب، سكراب ثقيل وخفيف",
+  },
+];
 
   return (
     <section id="services" className="scroll-mt-24 bg-slate-50 py-16 sm:py-20 lg:py-24">
@@ -49,7 +85,7 @@ export default function Services() {
           <h2 className="mb-4 text-2xl font-black text-slate-900 sm:text-3xl md:text-4xl">
             خدماتنا <span className="text-emerald-600">المتكاملة</span>
           </h2>
-          <p className="text-base text-slate-600 sm:text-lg md:text-xl">
+          {/* <p className="text-base text-slate-600 sm:text-lg md:text-xl">
             نغطي احتياجاتك في بيع الأثاث والأجهزة بأسعار تنافسية وخدمة سريعة في
             الدمام. وللنقل والمنازل عندنا{" "}
             <Link
@@ -59,10 +95,10 @@ export default function Services() {
               قسم نقل المنازل المميز
             </Link>
             .
-          </p>
+          </p> */}
         </div>
 
-        <div className="group relative mb-12 overflow-hidden rounded-2xl bg-emerald-600 p-6 text-center text-white shadow-xl sm:mb-16 sm:rounded-3xl sm:p-10 md:p-12">
+        {/* <div className="group relative mb-12 overflow-hidden rounded-2xl bg-emerald-600 p-6 text-center text-white shadow-xl sm:mb-16 sm:rounded-3xl sm:p-10 md:p-12">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-emerald-500 opacity-50 blur-3xl transition-transform duration-700 group-hover:scale-110" />
           <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-amber-400 opacity-20 blur-2xl" />
 
@@ -75,7 +111,7 @@ export default function Services() {
             المنزلي، المكتبي، أو التجاري. نشتري المطابخ، السجاد، التحف، وأكثر مع
             توفير فك مجاني ودفع كاش فوري!
           </p>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 xl:gap-8">
           {services.map((service, index) => (

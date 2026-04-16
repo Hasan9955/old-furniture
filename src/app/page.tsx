@@ -18,8 +18,8 @@ export default function Home() {
       <main>
         <Hero />
         <Categories />
-        <HouseShifting />
         <Services />
+        <HouseShifting />
         <Experience />
         <About />
         <ServiceAreas />
