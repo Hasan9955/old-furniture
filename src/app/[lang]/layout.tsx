@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+
+const locales = ["ar", "en"];
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -32,13 +34,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
+
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} font-sans scroll-smooth`}>
+    <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className={`${cairo.variable} font-sans scroll-smooth`}>
       <body className="flex min-h-screen flex-col bg-slate-50 pb-24 text-slate-900 antialiased sm:pb-8">
         {children}
       </body>

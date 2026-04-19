@@ -1,0 +1,228 @@
+{
+  "Navbar": {
+    "logoScrap": "Scrap ",
+    "logoDammam": "Dammam",
+    "links": {
+      "houseShifting": "Moving",
+      "services": "Services",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "whatsapp": "WhatsApp",
+    "language": "Language"
+  },
+  "Hero": {
+    "titlePart1": "We buy all types of scrap in ",
+    "titlePart2": "Dammam",
+    "titlePart3": " at the best price",
+    "description": "Specialized in buying all types of scrap, copper, and aluminum in any quantity. We provide free inspection and loading with instant and rewarding cash payment!",
+    "whatsappButton": "Contact via WhatsApp",
+    "callButton": "Call Now",
+    "feature1": "Best Market Price",
+    "feature2": "Fast Response",
+    "feature3": "We Come to You"
+  },
+  "Categories": {
+    "title": "Items We Buy",
+    "items": {
+      "furniture": "Furniture",
+      "appliances": "Appliances",
+      "housewares": "Housewares",
+      "aluminum": "Aluminum"
+    }
+  },
+  "Services": {
+    "titlePart1": "Our Integrated ",
+    "titlePart2": "Services",
+    "items": [
+      {
+        "title": "Buying A/C Scrap",
+        "description": "We buy all types of old and damaged air conditioners (Split, Window, Central) at the best prices, regardless of their condition.",
+        "keywords": "A/C scrap buyer, sell damaged A/C"
+      },
+      {
+        "title": "Aluminum Scrap",
+        "description": "We buy aluminum waste from windows, doors, and structures. We weigh and evaluate honestly at your location.",
+        "keywords": "buy used aluminum, aluminum scrap"
+      },
+      {
+        "title": "Brass Scrap",
+        "description": "We buy all brass parts, pipes, and mechanical pieces at highly competitive prices.",
+        "keywords": "buy brass, brass scrap"
+      },
+      {
+        "title": "Electrical Transformer Scrap",
+        "description": "Specialists in buying old and broken electrical transformers of all sizes and capacities.",
+        "keywords": "transformer scrap, damaged transformers"
+      },
+      {
+        "title": "Buying Generators",
+        "description": "We buy used and broken power generators, whether for factories or buildings, and provide transport.",
+        "keywords": "generator scrap, buy used generators"
+      },
+      {
+        "title": "Stainless Steel Scrap",
+        "description": "We buy stainless steel waste from restaurant equipment, tanks, and structures at current market prices.",
+        "keywords": "buy stainless steel, stainless scrap"
+      },
+      {
+        "title": "Construction and Building Scrap",
+        "description": "We buy demolition and construction site waste, including rebar and metal structures, with full site clearance.",
+        "keywords": "construction scrap, used rebar, demolition waste"
+      },
+      {
+        "title": "Electronic and Electrical Scrap",
+        "description": "We buy wires, electronic boards, and damaged electrical parts at the best evaluation for copper and metal weight.",
+        "keywords": "electronics scrap, buy electrical wires"
+      },
+      {
+        "title": "Copper Scrap",
+        "description": "We buy pure copper, stripped cables, and refrigeration pipes at the highest price per kilo in the market.",
+        "keywords": "buy copper, copper cables scrap"
+      },
+      {
+        "title": "Iron Scrap",
+        "description": "We buy huge quantities of iron, structures, and plates, with specialized trucks available for immediate loading and transport.",
+        "keywords": "buy iron scrap, heavy and light scrap"
+      }
+    ]
+  },
+  "HouseShifting": {
+    "badge": "Premium Service For Our Clients",
+    "titlePart1": "House & Furniture Moving ",
+    "titlePart2": "With Professionalism & Safety",
+    "description": "Whether you're moving neighborhoods or to another city from Dammam, we prepare a moving, packing, dismantling, and installation team — providing a clear quote before we start.",
+    "imageText1": "Moving Houses · Apartments · Offices",
+    "imageText2": "Care For Your Furniture",
+    "features": [
+      {
+        "title": "Professional Dismantling & Assembly",
+        "desc": "A team that dismantles and installs bedrooms, kitchens, and A/Cs without scratches."
+      },
+      {
+        "title": "Packing & Securing",
+        "desc": "Packaging for glass and sensitive appliances so your furniture arrives safely."
+      },
+      {
+        "title": "Transport in Equipped Trucks",
+        "desc": "Covered trucks suitable for furniture size inside and outside Dammam."
+      },
+      {
+        "title": "Clear Timings",
+        "desc": "We set the time with you and commit to arrival and delivery as much as possible."
+      }
+    ],
+    "whatsappButton": "Request Quote via WhatsApp",
+    "callButton": "Call Now",
+    "note": "Mention the type of furniture, neighborhood, and floor approximately so we can give you a clearer estimate.",
+    "waMessage": "Hello, I want to inquire about the furniture/house moving service."
+  },
+  "Experience": {
+    "title": "Market Experience & Trust Spanning Years",
+    "description": "We are the first choice for the residents of Dammam and the Eastern Province regarding buying, selling used furniture, and moving furniture, as attested by our clients.",
+    "stats": [
+      {
+        "number": "+15",
+        "label": "Years of Continuous Experience"
+      },
+      {
+        "number": "+5000",
+        "label": "Clients Trust Our Services"
+      },
+      {
+        "number": "+8000",
+        "label": "Purchases and Moves Recorded"
+      }
+    ]
+  },
+  "About": {
+    "titlePart1": "Why Choose Us In ",
+    "titlePart2": "Dammam?",
+    "description": "We specialize in buying used furniture in Dammam, Khobar, and Dhahran. We evaluate your furniture properly, give you the best price, and finish quickly without exhausting trips.",
+    "features": [
+      {
+        "title": "Excellent Prices That Satisfy You",
+        "desc": "We give you a fair evaluation for all types of furniture, A/Cs, and appliances."
+      },
+      {
+        "title": "We Come The Same Day",
+        "desc": "As soon as you call us, we come for inspection and give you your cash immediately."
+      },
+      {
+        "title": "Dismantling & Moving Is On Us",
+        "desc": "We carry the furniture and dismantle it for free without you paying a riyal."
+      }
+    ],
+    "whereToServe": "Where Do We Serve?",
+    "areas": [
+      "Dammam (All Neighborhoods)",
+      "Khobar",
+      "Dhahran"
+    ],
+    "callActionDesc": "Call us now and our representative will arrive to inspect your furniture for free.",
+    "callActionBtn": "Call Now:"
+  },
+  "ServiceAreas": {
+    "title": "Our Service Coverage Areas",
+    "areas": [
+      "Dammam",
+      "Khobar",
+      "Dhahran"
+    ]
+  },
+  "Testimonials": {
+    "titlePart1": "Our Clients' ",
+    "titlePart2": "Reviews",
+    "description": "Testimonials we are proud of from our esteemed clients in Dammam, Khobar, and Dhahran.",
+    "reviews": [
+      {
+        "name": "Ahmed Abdullah",
+        "text": "Excellent and fast service! I called them, and they came to see the furniture on the same day. I highly recommend dealing with them; their evaluation of the furniture was very fair and they gave me my cash on the spot."
+      },
+      {
+        "name": "Fahd Al-Otaibi",
+        "text": "I moved my furniture with them and bought from them too. A highly professional team and excellent prices. Honestly one of the best I've dealt with in Dammam."
+      },
+      {
+        "name": "Khalid Saeed",
+        "text": "Credibility and honesty in purchasing. I sold them A/Cs and used appliances, and the price was satisfying. They dismantled and moved everything for free and without any hassle."
+      }
+    ]
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "description": "Everything you need to know about the used furniture purchasing and moving service.",
+    "items": [
+      {
+        "q": "Do you buy all types of furniture?",
+        "a": "Yes, we buy bedrooms, kitchens, electrical appliances, A/Cs, majlis, and office furniture."
+      },
+      {
+        "q": "How is the furniture price determined?",
+        "a": "Our representative visits you to inspect the furniture, evaluates it based on its condition and usability, and gives you the best market price."
+      },
+      {
+        "q": "Is the inspection and dismantling service free?",
+        "a": "Absolutely. The inspection is completely free. If an agreement is reached, we cover all dismantling and moving costs."
+      },
+      {
+        "q": "When is the furniture value paid?",
+        "a": "Payment is made in cash immediately upon agreement and receiving the furniture."
+      },
+      {
+        "q": "Do you provide house moving services?",
+        "a": "Yes, we provide furniture and house moving with dismantling, installation, and packaging depending on the agreement. Check the 'Moving' section at the top of the page or contact us."
+      }
+    ]
+  },
+  "Footer": {
+    "desc": "The best shop for buying used furniture in Dammam and the Eastern Province. We give you the best prices and remove the furniture quickly and effortlessly.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "rights": "All rights reserved",
+    "madeWith": "Designed and developed with ❤️"
+  },
+  "FloatingWhatsApp": {
+    "label": "Contact via WhatsApp"
+  }
+}

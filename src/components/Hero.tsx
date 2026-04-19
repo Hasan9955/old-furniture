@@ -1,6 +1,6 @@
 import { MessageCircle, Phone } from "lucide-react";
 
-export default function Hero() {
+export default function Hero({ dict }: { dict: any }) {
   return (
     <section className="relative flex min-h-[min(100dvh,720px)] items-center justify-center overflow-hidden py-16 sm:min-h-[80vh] sm:py-20 lg:min-h-[85vh]">
       <div
@@ -14,25 +14,20 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl space-y-6 text-center sm:space-y-8">
-          {/* <h1 className="text-balance text-3xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl">
-            نشتري الأثاث المستعمل في{" "}
-            <span className="block text-emerald-400 sm:inline">الدمام</span>{" "}
-            بأفضل سعر
-          </h1> */} 
-<h1 className="text-balance text-3xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl">
-  نشتري كافة أنواع السكراب في{" "}
-  <span className="block text-emerald-400 sm:inline">الدمام</span>{" "}
-  بأفضل سعر
-</h1>
-<p className="mx-auto max-w-2xl text-base font-medium leading-relaxed text-slate-200 drop-shadow sm:text-lg md:text-xl">
-  متخصصون في شراء جميع أنواع السكراب، النحاس، والألمنيوم بأي كمية. نوفر خدمة الفحص والتحميل مجاناً مع دفع كاش فوري ومجزي!
-</p>
+          <h1 className="text-balance text-3xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl">
+            {dict.Hero.titlePart1}
+            <span className="block text-emerald-400 sm:inline">{dict.Hero.titlePart2}</span>{" "}
+            {dict.Hero.titlePart3}
+          </h1>
+          <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed text-slate-200 drop-shadow sm:text-lg md:text-xl">
+            {dict.Hero.description}
+          </p>
           <div className="flex flex-col items-stretch justify-center gap-3 pt-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4 sm:pt-4">
             <a
               href="https://wa.me/+9660565642655"
               className="inline-flex min-h-[48px] w-full max-w-md flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white shadow-xl transition hover:bg-[#20bd5a] active:scale-[0.99] sm:w-auto sm:max-w-none sm:px-8 sm:py-4 sm:text-lg"
             >
-              تواصل عبر واتساب
+              {dict.Hero.whatsappButton}
               <MessageCircle className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
             </a>
             <a
@@ -40,22 +35,22 @@ export default function Hero() {
               className="inline-flex min-h-[48px] w-full max-w-md flex-1 items-center justify-center gap-2 rounded-full bg-emerald-600 px-6 py-3.5 text-base font-bold text-white shadow-[0_0_20px_rgba(5,150,105,0.4)] transition hover:bg-emerald-500 active:scale-[0.99] sm:w-auto sm:max-w-none sm:px-8 sm:py-4 sm:text-lg"
             >
               <Phone className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
-              اتصل الآن
+              {dict.Hero.callButton}
             </a>
           </div>
 
           <div className="flex flex-col items-center gap-3 pt-6 text-sm font-semibold text-emerald-100 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-10 sm:gap-y-2 sm:pt-8 sm:text-base">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
-              أفضل سعر بالسوق
+              {dict.Hero.feature1}
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
-              استجابة سريعة
+              {dict.Hero.feature2}
             </div>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
-              نجيك وين ما كنت
+              {dict.Hero.feature3}
             </div>
           </div>
         </div>

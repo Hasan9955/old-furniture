@@ -1,21 +1,21 @@
 import { Bed, Tv, Coffee, Cpu } from "lucide-react";
 
-export default function Categories() {
+export default function Categories({ dict }: { dict: any }) {
   const categories = [
     {
-      name: "أثاث",
+      name: dict.Categories.items.furniture,
       icon: <Bed className="mb-3 h-10 w-10 text-emerald-500 sm:mb-4 sm:h-12 sm:w-12" />,
     },
     {
-      name: "أجهزة كهربائية",
+      name: dict.Categories.items.appliances,
       icon: <Tv className="mb-3 h-10 w-10 text-emerald-500 sm:mb-4 sm:h-12 sm:w-12" />,
     },
     {
-      name: "أدوات منزلية",
+      name: dict.Categories.items.housewares,
       icon: <Coffee className="mb-3 h-10 w-10 text-emerald-500 sm:mb-4 sm:h-12 sm:w-12" />,
     },
     {
-      name: "ألمنيوم",
+      name: dict.Categories.items.aluminum,
       icon: <Cpu className="mb-3 h-10 w-10 text-emerald-500 sm:mb-4 sm:h-12 sm:w-12" />,
     },
   ];
@@ -25,7 +25,7 @@ export default function Categories() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center sm:mb-12">
           <h2 className="text-2xl font-black text-slate-900 sm:text-3xl">
-            الأشياء اللي نشتريها
+            {dict.Categories.title}
           </h2>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">

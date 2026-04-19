@@ -1,9 +1,5 @@
-export default function Experience() {
-  const stats = [
-    { number: "+15", label: "سنوات الخبرة المتواصلة" },
-    { number: "+5000", label: "عميل يثق بخدماتنا" },
-    { number: "+8000", label: "عملية شراء ونقل مسجلة" },
-  ];
+export default function Experience({ dict }: { dict: any }) {
+  const stats = dict.Experience.stats;
 
   return (
     <section className="relative overflow-hidden bg-emerald-600 py-14 text-white sm:py-16 lg:py-20">
@@ -13,16 +9,15 @@ export default function Experience() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
           <h2 className="mb-4 text-2xl font-black sm:text-3xl md:text-4xl">
-            خبرة بالسوق وثقة تمتد لسنوات طويلة
+            {dict.Experience.title}
           </h2>
           <p className="text-base text-emerald-100 sm:text-lg">
-            حنا خيارك الأول لأهل الدمام والشرقية في بيع وشراء الأثاث المستعمل
-            ونقل العفش، وبشهادة عملائنا.
+            {dict.Experience.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 text-center sm:gap-6 md:grid-cols-3 md:gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat: any, index: number) => (
             <div
               key={index}
               className="rounded-2xl border border-emerald-500/30 bg-emerald-700/50 p-6 backdrop-blur-sm sm:rounded-3xl sm:p-8"
