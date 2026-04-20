@@ -1,16 +1,41 @@
+"use client";
+
 import { MessageCircle, Phone } from "lucide-react";
+import { useState, useEffect } from "react";
+
+const heroImages = [
+  "/asset/heroImg1.jpg",
+  "/asset/heroImg2.jpg",
+  "/asset/heroImg3.jpg",
+  "/asset/heroImg4.jpg",
+];
 
 export default function Hero({ dict }: { dict: any }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative flex min-h-[min(100dvh,720px)] items-center justify-center overflow-hidden py-16 sm:min-h-[80vh] sm:py-20 lg:min-h-[85vh]">
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-       style={{
-          backgroundImage: `url(/asset/heroImg2.jpg)`,
-        }}
-      >
-        <div className="absolute inset-0 bg-slate-900/75" />
-      </div>
+      {heroImages.map((image, index) => (
+        <div
+          key={image}
+          className={`absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+            index === currentImageIndex ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        >
+          <div className="absolute inset-0 bg-slate-900/75" />
+        </div>
+      ))}
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl space-y-6 text-center sm:space-y-8">
