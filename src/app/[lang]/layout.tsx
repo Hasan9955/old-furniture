@@ -10,29 +10,63 @@ const cairo = Cairo({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "شراء الأثاث المستعمل في الدمام | نشتري العفش بأفضل الأسعار",
-  description: "نشتري الأثاث المستعمل في الدمام والخبر والظهران بأفضل الأسعار. نشتري غرف النوم، المطابخ، المكيفات، والأجهزة الكهربائية، خدمة سريعة وموثوقة.",
-  keywords: [
-    "شراء أثاث مستعمل الدمام",
-    "شراء عفش مستعمل",
-    "محلات شراء الأثاث المستعمل في الدمام",
-    "نشتري الاثاث المستعمل",
-    "شراء مكيفات مستعملة",
-    "شراء مطابخ مستعملة",
-    "نقل عفش الدمام",
-    "نقل منازل الدمام",
-    "شركة نقل اثاث الدمام",
-  ],
-  openGraph: {
-    title: "شراء الأثاث المستعمل في الدمام | نشتري العفش بأفضل الأسعار",
-    description: "نشتري الأثاث المستعمل في الدمام والخبر والظهران بأفضل الأسعار. نشتري غرف النوم، المطابخ، المكيفات، والأجهزة الكهربائية، خدمة سريعة وموثوقة.",
-    url: "https://example.com", // Replace with real URL when hosting
-    siteName: "أثاث الدمام",
-    locale: "ar_SA",
-    type: "website",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const isArabic = lang === "ar";
+
+  const title = isArabic 
+    ? "شراء سكراب واثاث مستعمل في الدمام | نشتري العفش بأفضل الأسعار" 
+    : "Buy Old Scrap in Dammam | Best Prices for Furniture & Scrap";
+    
+  const description = isArabic
+    ? "نشتري الأثاث المستعمل والسكراب في الدمام والخبر والظهران بأفضل الأسعار. نشتري غرف النوم، المطابخ، المكيفات، والأداوت الكهربائية، خدمة سريعة وموثوقة."
+    : "We buy used furniture and old scrap in Dammam, Khobar, and Dhahran at the best prices. We buy bedrooms, kitchens, A/Cs, and appliances. Fast and reliable service.";
+
+  const keywords = isArabic
+    ? [
+        "شراء سكراب الدمام",
+        "نشتري سكراب بالدمام",
+        "شراء أثاث مستعمل الدمام",
+        "شراء عفش مستعمل",
+        "محلات شراء الأثاث المستعمل في الدمام",
+        "نشتري الاثاث المستعمل",
+        "شراء مكيفات مستعملة",
+        "شراء مطابخ مستعملة",
+        "buy old scrap dammam"
+      ]
+    : [
+        "buy old scrap dammam",
+        "scrap buyer dammam",
+        "buy used furniture dammam",
+        "buy damaged ACs dammam",
+        "aluminum scrap buyers",
+        "copper scrap dammam",
+        "used furniture buyers"
+      ];
+
+  const siteName = isArabic ? "شراء سكراب واثاث الدمام" : "Dammam Scrap & Used Furniture Buyers";
+
+  return {
+    title,
+    description,
+    keywords,
+    openGraph: {
+      title,
+      description,
+      url: `https://www.buyoldscrapdammam.com/${lang}`,
+      siteName,
+      locale: isArabic ? "ar_SA" : "en_US",
+      type: "website",
+    },
+    alternates: {
+      canonical: `https://www.buyoldscrapdammam.com/${lang}`,
+      languages: {
+        "en-US": "https://www.buyoldscrapdammam.com/en",
+        "ar-SA": "https://www.buyoldscrapdammam.com/ar",
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
