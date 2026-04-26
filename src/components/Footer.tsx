@@ -46,11 +46,11 @@ export default function Footer({ dict }: { dict: any }) {
               {dict.Footer.contactUs}
             </h4>
             <div className="space-y-3 text-sm sm:space-y-4 sm:text-base">
-              <a href="tel:+9660565642655" className="flex items-center gap-3 transition-colors hover:text-emerald-400">
+              <a href="tel:+966565642655" className="flex items-center gap-3 transition-colors hover:text-emerald-400">
                 <Phone className="h-5 w-5 shrink-0 text-emerald-500" />
-                <span dir="ltr">+9660565642655</span>
+                <span dir="ltr">+966565642655</span>
               </a>
-              <a href="https://wa.me/+9660565642655" className="flex items-center gap-3 transition-colors hover:text-emerald-400">
+              <a href="https://wa.me/+966565642655" className="flex items-center gap-3 transition-colors hover:text-emerald-400">
                 <MessageCircle className="h-5 w-5 shrink-0 text-emerald-500" />
                 {dict.Navbar.whatsapp}
               </a>
@@ -60,8 +60,8 @@ export default function Footer({ dict }: { dict: any }) {
 
         <div className="flex flex-col items-center justify-between gap-2 border-t border-slate-800 pt-6 text-center text-xs text-slate-500 sm:flex-row sm:text-left sm:text-sm">
           <p>
-            {dict.Footer.rights} &copy; {new Date().getFullYear()} 
-            <span> - </span> {dict.Navbar.logoScrap}{dict.Navbar.logoDammam}   
+            {dict.Footer.rights} &copy; {new Date().getFullYear()}
+            <span> - </span> {dict.Navbar.logoScrap}{dict.Navbar.logoDammam}
           </p>
           <p>{dict.Footer.madeWith}</p>
         </div>

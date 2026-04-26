@@ -3,7 +3,7 @@ import { Truck, Package, Wrench, ShieldCheck, Clock, MessageCircle, Phone, Spark
 import { images } from "./imageImporter";
 
 export default function HouseShifting({ dict }: { dict: any }) {
-  const waHref = "https://wa.me/+9660565642655?text=" + encodeURIComponent(dict.HouseShifting.waMessage);
+  const waHref = "https://wa.me/+966565642655?text=" + encodeURIComponent(dict.HouseShifting.waMessage);
 
   const icons = [Wrench, Package, Truck, Clock];
 
@@ -69,7 +69,7 @@ export default function HouseShifting({ dict }: { dict: any }) {
                 <a href={waHref} className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-base font-bold text-white shadow-lg transition hover:bg-[#20bd5a] hover:shadow-xl active:scale-[0.98] sm:min-w-[200px] sm:flex-none">
                   {dict.HouseShifting.whatsappButton} <MessageCircle className="h-5 w-5 shrink-0" />
                 </a>
-                <a href="tel:+9660565642655" className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full border-2 border-emerald-600 bg-white px-5 py-3 text-base font-bold text-emerald-700 transition hover:bg-emerald-50 active:scale-[0.98] sm:min-w-[180px] sm:flex-none">
+                <a href="tel:+966565642655" className="inline-flex min-h-[48px] flex-1 items-center justify-center gap-2 rounded-full border-2 border-emerald-600 bg-white px-5 py-3 text-base font-bold text-emerald-700 transition hover:bg-emerald-50 active:scale-[0.98] sm:min-w-[180px] sm:flex-none">
                   <Phone className="h-5 w-5 shrink-0" /> {dict.HouseShifting.callButton}
                 </a>
               </div>

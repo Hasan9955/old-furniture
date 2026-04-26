@@ -23,7 +23,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 
         <Hero dict={dict} />
         <Categories dict={dict} />
         <Services dict={dict} />
-        <HouseShifting dict={dict} />
+        {/* <HouseShifting dict={dict} /> */}
         <Experience dict={dict} />
         <About dict={dict} />
         <ServiceAreas dict={dict} />
