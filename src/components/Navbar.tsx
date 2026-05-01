@@ -16,7 +16,8 @@ export default function Navbar({ dict, lang }: { dict: any; lang: string }) {
     { href: `/${lang}#house-shifting`, label: dict.Navbar.links.houseShifting },
     { href: `/${lang}#services`, label: dict.Navbar.links.services },
     { href: `/${lang}#about`, label: dict.Navbar.links.about },
-    { href: `/${lang}#contact`, label: dict.Navbar.links.contact },
+    { href: `/${lang}/blog`, label: dict.Navbar.links.blog },
+    { href: `/${lang}/contact`, label: dict.Navbar.links.contact },
   ];
 
   const languages = [

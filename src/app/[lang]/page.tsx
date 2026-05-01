@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import ServiceAreas from "@/components/ServiceAreas";
 import FAQ from "@/components/FAQ";
+import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 import FloatingContacts from "@/components/FloatingWhatsApp";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -29,6 +30,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 
         <ServiceAreas dict={dict} />
         <Testimonials dict={dict} />
         <FAQ dict={dict} />
+        <BlogSection dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} />
       <FloatingContacts dict={dict} />

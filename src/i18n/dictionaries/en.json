@@ -6,7 +6,8 @@
       "houseShifting": "Moving",
       "services": "Services",
       "about": "About Us",
-      "contact": "Contact"
+      "blog": "Blog",
+      "contact": "Contact Us"
     },
     "whatsapp": "WhatsApp",
     "language": "Language"
@@ -217,11 +218,67 @@
     ]
   },
   "Footer": {
-    "desc": "The best shop for buying used furniture in Dammam and the Eastern Province. We give you the best prices and remove the furniture quickly and effortlessly.",
+    "desc": "The premier destination for scrap trading in Dammam and the Eastern Province. We provide competitive market pricing, seamless logistics, and a commitment to sustainable recycling solutions.",
     "quickLinks": "Quick Links",
     "contactUs": "Contact Us",
     "rights": "All rights reserved",
     "madeWith": "Designed and developed with ❤️"
+  },
+  "Blog": {
+    "titlePart1": "Latest ",
+    "titlePart2": "Blogs",
+    "description": "Read our latest articles and tips on selling scrap and used appliances.",
+    "readMore": "Read More",
+    "moreBlogs": "More Blogs",
+    "mainTitle": "Our Blog",
+    "mainDesc": "Discover insights and tips about the scrap market in Dammam.",
+    "items": [
+      {
+        "id": "scrap-ac",
+        "title": "Why You Should Sell Your Scrap Air Conditioner",
+        "date": "April 20, 2026",
+        "image": "/asset/air-conditioner-scrap-3.jpeg",
+        "excerpt": "Don't throw away your old AC! Learn why selling it as scrap is the best option for your wallet and the environment.",
+        "content": "Old air conditioners consume a lot of electricity and often break down. Instead of paying for expensive repairs, selling your damaged AC as scrap is a great idea. Copper, aluminum, and steel inside the AC are valuable metals that can be recycled. We buy all types of scrap ACs in Dammam at the best market prices. Not only do you get cash instantly, but you also help in recycling materials safely."
+      },
+      {
+        "id": "scrap-refrigerator",
+        "title": "What to Do With an Old, Broken Refrigerator?",
+        "date": "April 22, 2026",
+        "image": "/asset/Refrigerators-in-Dammam.webp",
+        "excerpt": "Is your old refrigerator taking up too much space? Find out how you can turn it into cash quickly.",
+        "content": "Refrigerators are bulky and difficult to dispose of when they stop working. Throwing them away illegally can harm the environment due to the refrigerant gases. The best solution is to sell it to a professional scrap buyer. We handle the heavy lifting, transport, and proper recycling of your old refrigerator, and pay you cash on the spot. Clear up your space today!"
+      },
+      {
+        "id": "scrap-copper",
+        "title": "The Value of Copper in Your Scrap Appliances",
+        "date": "April 24, 2026",
+        "image": "/asset/copper.jpg",
+        "excerpt": "Copper is one of the most valuable scrap metals. Learn where to find it in your old household items.",
+        "content": "Copper is highly sought after in the recycling industry because it doesn't lose its quality during recycling. You can find copper in the wiring of old appliances, in the coils of air conditioners, and in old plumbing pipes. If you have broken appliances lying around, they might be worth more than you think. Contact us to evaluate your scrap and get paid for the hidden copper."
+      },
+      {
+        "id": "scrap-furniture",
+        "title": "Recycling Scrap Metal from Old Furniture",
+        "date": "April 26, 2026",
+        "image": "/asset/scrap.webp",
+        "excerpt": "Did you know that some old furniture contains valuable metal components? Here is what you need to know.",
+        "content": "While wooden furniture might be sold as used items, metal beds, iron cabinets, and aluminum frames are perfect for scrap recycling. When you upgrade your home or office, don't just dump the old metal pieces. We offer competitive prices for all kinds of metal scrap in Dammam. Our team will come to your location, dismantle if necessary, and remove the items effortlessly."
+      }
+    ]
+  },
+  "Contact": {
+    "titlePart1": "Contact ",
+    "titlePart2": "Us",
+    "description": "Get in touch with us for the best evaluation of your scrap and used items in Dammam.",
+    "locationTitle": "Our Location",
+    "address": "Dammam, Saudi Arabia",
+    "callUsTitle": "Call Us",
+    "phone": "+966565642655",
+    "emailTitle": "Email Us",
+    "email": "info@buyoldscrapdammam.com",
+    "workingHoursTitle": "Working Hours",
+    "workingHours": "Everyday: 8:00 AM - 10:00 PM"
   },
   "FloatingWhatsApp": {
     "label": "Contact via WhatsApp"
