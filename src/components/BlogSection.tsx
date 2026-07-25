@@ -40,7 +40,7 @@ export default function BlogSection({ dict, lang }: { dict: any; lang: string })
               key={item.id}
               className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-xl hover:ring-emerald-200"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+              <Link href={`/${lang}/blog/${item.id}` as any} className="relative aspect-[4/3] overflow-hidden bg-slate-100 block">
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -48,19 +48,21 @@ export default function BlogSection({ dict, lang }: { dict: any; lang: string })
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
-              </div>
+              </Link>
               <div className="flex flex-1 flex-col p-6">
                 <time dateTime={item.date} className="mb-2 text-sm font-medium text-emerald-600">
                   {item.date}
                 </time>
                 <h3 className="mb-3 text-xl font-bold leading-tight text-slate-800 group-hover:text-emerald-600 transition-colors">
-                  {item.title}
+                  <Link href={`/${lang}/blog/${item.id}` as any}>
+                    {item.title}
+                  </Link>
                 </h3>
                 <p className="mb-6 flex-1 text-slate-600 line-clamp-3">
                   {item.excerpt}
                 </p>
                 <Link
-                  href={`/${lang}/blog` as any}
+                  href={`/${lang}/blog/${item.id}` as any}
                   className="inline-flex items-center gap-2 font-semibold text-emerald-600 hover:text-emerald-700"
                 >
                   {blogData.readMore}

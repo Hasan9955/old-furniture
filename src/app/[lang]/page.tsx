@@ -9,11 +9,10 @@ import Testimonials from "@/components/Testimonials";
 import ServiceAreas from "@/components/ServiceAreas";
 import FAQ from "@/components/FAQ";
 import BlogSection from "@/components/BlogSection";
+import Contacts from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingContacts from "@/components/FloatingWhatsApp";
 import { getDictionary } from "@/i18n/dictionaries";
-import ContactPage from "./contact/page";
-import Contacts from "@/components/Contact";
 
 export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 'en' }> }) {
   const { lang } = await params;
@@ -33,8 +32,8 @@ export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 
         <Testimonials dict={dict} />
         <FAQ dict={dict} />
         <BlogSection dict={dict} lang={lang} />
+        <Contacts dict={dict} lang={lang} />
       </main>
-      <Contacts params={params}/>
       <Footer dict={dict} />
       <FloatingContacts dict={dict} /> 
     </>
