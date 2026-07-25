@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Cpu, Sparkles, Coins, Weight, Construction, Shield, Zap, Pipette, Layout, Wind, Activity } from "lucide-react";
+import { Cpu, Sparkles, Coins, Weight, Construction, Shield, Zap, Pipette, Layout, Wind, Activity, ArrowRight, ArrowLeft } from "lucide-react";
 import { images } from "./imageImporter";
 
 const getGridClass = (index: number) => {
@@ -19,7 +19,7 @@ const getGridClass = (index: number) => {
   return classes[index % 10];
 };
 
-export default function Services({ dict }: { dict: any }) {
+export default function Services({ dict, lang = "en" }: { dict: any; lang?: string }) {
   const icons = [
     <Wind key={0} className="h-7 w-7 text-emerald-400 transition-colors duration-500 group-hover:text-white" />,
     <Layout key={1} className="h-7 w-7 text-emerald-400 transition-colors duration-500 group-hover:text-white" />,
@@ -34,7 +34,7 @@ export default function Services({ dict }: { dict: any }) {
   ];
 
   const imageFiles = [
-    images.electric1, images.aluminum1, images.brassScrap2, images.electric2, 
+    images.airCondition1, images.aluminum1, images.brassScrap2, images.transformer1, 
     images.generator2, images.stainless, images.construction, images.electric4,
     images.copper, images.iron
   ];
@@ -44,6 +44,8 @@ export default function Services({ dict }: { dict: any }) {
     icon: icons[index],
     image: imageFiles[index]
   }));
+
+  const ArrowIcon = lang === "ar" ? ArrowLeft : ArrowRight;
 
   return (
     <section id="services" className="scroll-mt-24 bg-slate-50 py-16 sm:py-20 lg:py-32">
@@ -59,9 +61,10 @@ export default function Services({ dict }: { dict: any }) {
 
         <div className="grid grid-flow-dense grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
           {services.map((service: any, index: number) => (
-            <div
+            <Link
               key={index}
-              className={`group relative flex flex-col overflow-hidden rounded-3xl bg-slate-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.2)] ${getGridClass(index)}`}
+              href={`/${lang}/services/${service.slug}` as any}
+              className={`group relative flex flex-col overflow-hidden rounded-3xl bg-slate-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] ${getGridClass(index)}`}
             >
               <div className="absolute inset-0 z-0">
                 <Image
@@ -69,7 +72,7 @@ export default function Services({ dict }: { dict: any }) {
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-cover opacity-50 transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-70"
+                  className="object-cover opacity-50 transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75"
                 />
               </div>
               
@@ -80,24 +83,29 @@ export default function Services({ dict }: { dict: any }) {
                   {service.icon}
                 </div>
 
-                <div className="mt-auto transition-transform duration-500 group-hover:-translate-y-2">
+                <div className="mt-auto transition-transform duration-500 group-hover:-translate-y-1">
                   <h3 className="mb-3 text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-3xl">
                     {service.title}
                   </h3>
                   <p className="mb-6 line-clamp-2 text-sm text-slate-300 sm:text-base">
                     {service.description}
                   </p>
-                  <div>
+                  <div className="flex items-center justify-between gap-2">
                     <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-emerald-300 backdrop-blur-sm transition-colors duration-500 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/20 sm:text-sm">
                       {service.keywords}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-emerald-400 opacity-90 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 rtl:group-hover:-translate-x-1">
+                      {dict.Services.viewDetails || "View Details"}
+                      <ArrowIcon className="h-4 w-4" />
                     </span>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

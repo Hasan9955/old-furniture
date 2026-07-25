@@ -12,6 +12,8 @@ import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 import FloatingContacts from "@/components/FloatingWhatsApp";
 import { getDictionary } from "@/i18n/dictionaries";
+import ContactPage from "./contact/page";
+import Contacts from "@/components/Contact";
 
 export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 'en' }> }) {
   const { lang } = await params;
@@ -23,7 +25,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 
       <main>
         <Hero dict={dict} />
         <Categories dict={dict} />
-        <Services dict={dict} />
+        <Services dict={dict} lang={lang} />
         {/* <HouseShifting dict={dict} /> */}
         <Experience dict={dict} />
         <About dict={dict} />
@@ -32,8 +34,9 @@ export default async function Home({ params }: { params: Promise<{ lang: 'ar' | 
         <FAQ dict={dict} />
         <BlogSection dict={dict} lang={lang} />
       </main>
+      <Contacts params={params}/>
       <Footer dict={dict} />
-      <FloatingContacts dict={dict} />
+      <FloatingContacts dict={dict} /> 
     </>
   );
 }

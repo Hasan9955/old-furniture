@@ -13,7 +13,8 @@ export default function Navbar({ dict, lang }: { dict: any; lang: string }) {
   const router = useRouter();
 
   const links = [
-    { href: `/${lang}#house-shifting`, label: dict.Navbar.links.houseShifting },
+    // { href: `/${lang}#house-shifting`, label: dict.Navbar.links.houseShifting },
+    { href: `/${lang}`, label: dict.Navbar.links.home, },
     { href: `/${lang}#services`, label: dict.Navbar.links.services },
     { href: `/${lang}#about`, label: dict.Navbar.links.about },
     { href: `/${lang}/blog`, label: dict.Navbar.links.blog },

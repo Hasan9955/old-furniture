@@ -3,7 +3,7 @@
     "logoScrap": "Scrap ",
     "logoDammam": "Dammam",
     "links": {
-      "houseShifting": "Moving",
+      "home": "Home",
       "services": "Services",
       "about": "About Us",
       "blog": "Blog",
@@ -35,53 +35,72 @@
   "Services": {
     "titlePart1": "Our Integrated ",
     "titlePart2": "Services",
+    "viewDetails": "View Details",
+    "backToServices": "Back to Services",
+    "acceptedItemsTitle": "What We Accept Under This Service",
+    "whyChooseUs": "Why Choose Our Service?",
+    "processTitle": "How It Works",
+    "processSubtitle": "Simple 4-Step Process for Instant Cash",
+    "relatedServices": "Other Services We Provide",
+    "contactCtaTitle": "Ready to Sell Your Scrap?",
+    "contactCtaSub": "Get an immediate quote with free inspection and instant cash payment in Dammam and surrounding areas.",
     "items": [
       {
+        "slug": "ac-scrap",
         "title": "Buying A/C Scrap",
         "description": "We buy all types of old and damaged air conditioners (Split, Window, Central) at the best prices, regardless of their condition.",
         "keywords": "A/C scrap buyer, sell damaged A/C"
       },
       {
+        "slug": "aluminum-scrap",
         "title": "Aluminum Scrap",
         "description": "We buy aluminum waste from windows, doors, and structures. We weigh and evaluate honestly at your location.",
         "keywords": "buy used aluminum, aluminum scrap"
       },
       {
+        "slug": "brass-scrap",
         "title": "Brass Scrap",
         "description": "We buy all brass parts, pipes, and mechanical pieces at highly competitive prices.",
         "keywords": "buy brass, brass scrap"
       },
       {
+        "slug": "electrical-transformer-scrap",
         "title": "Electrical Transformer Scrap",
         "description": "Specialists in buying old and broken electrical transformers of all sizes and capacities.",
         "keywords": "transformer scrap, damaged transformers"
       },
       {
+        "slug": "generators-scrap",
         "title": "Buying Generators",
         "description": "We buy used and broken power generators, whether for factories or buildings, and provide transport.",
         "keywords": "generator scrap, buy used generators"
       },
       {
+        "slug": "stainless-steel-scrap",
         "title": "Stainless Steel Scrap",
         "description": "We buy stainless steel waste from restaurant equipment, tanks, and structures at current market prices.",
         "keywords": "buy stainless steel, stainless scrap"
       },
       {
+        "slug": "construction-scrap",
         "title": "Construction and Building Scrap",
         "description": "We buy demolition and construction site waste, including rebar and metal structures, with full site clearance.",
         "keywords": "construction scrap, used rebar, demolition waste"
       },
       {
+        "slug": "electronic-scrap",
         "title": "Electronic and Electrical Scrap",
         "description": "We buy wires, electronic boards, and damaged electrical parts at the best evaluation for copper and metal weight.",
         "keywords": "electronics scrap, buy electrical wires"
       },
       {
+        "slug": "copper-scrap",
         "title": "Copper Scrap",
         "description": "We buy pure copper, stripped cables, and refrigeration pipes at the highest price per kilo in the market.",
         "keywords": "buy copper, copper cables scrap"
       },
       {
+        "slug": "iron-scrap",
         "title": "Iron Scrap",
         "description": "We buy huge quantities of iron, structures, and plates, with specialized trucks available for immediate loading and transport.",
         "keywords": "buy iron scrap, heavy and light scrap"
