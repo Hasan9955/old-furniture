@@ -9,9 +9,21 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'ar
   const { lang } = await params;
   const dict = await getDictionary(lang);
   
+  const canonicalUrl = `https://www.buyoldscrapdammam.com/${lang}/blog`;
+
   return {
     title: `${dict.Blog?.mainTitle || 'Blog'} | ${dict.Navbar.logoScrap}${dict.Navbar.logoDammam}`,
     description: dict.Blog?.mainDesc || 'Read our latest articles about scrap.',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        "en": "https://www.buyoldscrapdammam.com/en/blog",
+        "ar": "https://www.buyoldscrapdammam.com/ar/blog",
+        "x-default": "https://www.buyoldscrapdammam.com/en/blog",
+        "en-US": "https://www.buyoldscrapdammam.com/en/blog",
+        "ar-SA": "https://www.buyoldscrapdammam.com/ar/blog",
+      },
+    },
   };
 }
 

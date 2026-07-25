@@ -38,10 +38,14 @@ export default function Hero({ dict }: { dict: any }) {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl space-y-6 text-center sm:space-y-8">
-          <h1 className="text-balance text-3xl font-black leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl">
-            {dict.Hero.titlePart1}
-            <span className="block text-emerald-400 sm:inline">{dict.Hero.titlePart2}</span>{" "}
-            {dict.Hero.titlePart3}
+          <h1 className="text-balance text-2xl font-black leading-tight text-white drop-shadow-lg sm:text-4xl lg:text-5xl max-w-4xl mx-auto">
+            {dict.Hero.h1Title || (
+              <>
+                {dict.Hero.titlePart1}
+                <span className="block text-emerald-400 sm:inline">{dict.Hero.titlePart2}</span>{" "}
+                {dict.Hero.titlePart3}
+              </>
+            )}
           </h1>
           <p className="mx-auto max-w-2xl text-base font-medium leading-relaxed text-slate-200 drop-shadow sm:text-lg md:text-xl">
             {dict.Hero.description}

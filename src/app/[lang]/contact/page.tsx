@@ -8,9 +8,21 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'ar
   const { lang } = await params;
   const dict = await getDictionary(lang);
   
+  const canonicalUrl = `https://www.buyoldscrapdammam.com/${lang}/contact`;
+
   return {
     title: `${dict.Contact?.titlePart1 || 'Contact'} ${dict.Contact?.titlePart2 || 'Us'} | ${dict.Navbar.logoScrap}${dict.Navbar.logoDammam}`,
     description: dict.Contact?.description || 'Contact us for scrap and used items.',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        "en": "https://www.buyoldscrapdammam.com/en/contact",
+        "ar": "https://www.buyoldscrapdammam.com/ar/contact",
+        "x-default": "https://www.buyoldscrapdammam.com/en/contact",
+        "en-US": "https://www.buyoldscrapdammam.com/en/contact",
+        "ar-SA": "https://www.buyoldscrapdammam.com/ar/contact",
+      },
+    },
   };
 }
 

@@ -15,12 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const isArabic = lang === "ar";
 
   const title = isArabic 
-    ? "شراء سكراب واثاث مستعمل في الدمام | نشتري العفش بأفضل الأسعار" 
-    : "Buy Old Scrap in Dammam | Best Prices for Furniture & Scrap";
+    ? "أفضل مشتري سكراب وأثاث مستعمل | شراء سكراب الدمام" 
+    : "Best Scrap & Old Furniture Buyer | Buy Old Scrap Dammam";
     
   const description = isArabic
-    ? "نشتري الأثاث المستعمل والسكراب في الدمام والخبر والظهران بأفضل الأسعار. نشتري غرف النوم، المطابخ، المكيفات، والأداوت الكهربائية، خدمة سريعة وموثوقة."
-    : "We buy used furniture and old scrap in Dammam, Khobar, and Dhahran at the best prices. We buy bedrooms, kitchens, A/Cs, and appliances. Fast and reliable service.";
+    ? "هل تبحث عن أفضل مشتري سكراب وأثاث مستعمل في الدمام؟ نشتري المكيفات القديمة، سكراب المعادن، الثلاجات، والغسالات كاش فوراً. اتصل بنا اليوم!"
+    : "Looking for the best scrap & old furniture buyer in Dammam? We buy old AC, metal scrap, fridge, and washing machines for instant cash. Contact us today!";
 
   const keywords = isArabic
     ? [
@@ -61,6 +61,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     alternates: {
       canonical: `https://www.buyoldscrapdammam.com/${lang}`,
       languages: {
+        "en": "https://www.buyoldscrapdammam.com/en",
+        "ar": "https://www.buyoldscrapdammam.com/ar",
+        "x-default": "https://www.buyoldscrapdammam.com/en",
         "en-US": "https://www.buyoldscrapdammam.com/en",
         "ar-SA": "https://www.buyoldscrapdammam.com/ar",
       },

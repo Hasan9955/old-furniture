@@ -68,6 +68,9 @@ export async function generateMetadata({
     alternates: {
       canonical: canonicalUrl,
       languages: {
+        "en": `https://www.buyoldscrapdammam.com/en/blog/${id}`,
+        "ar": `https://www.buyoldscrapdammam.com/ar/blog/${id}`,
+        "x-default": `https://www.buyoldscrapdammam.com/en/blog/${id}`,
         "en-US": `https://www.buyoldscrapdammam.com/en/blog/${id}`,
         "ar-SA": `https://www.buyoldscrapdammam.com/ar/blog/${id}`,
       },

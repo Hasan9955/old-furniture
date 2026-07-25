@@ -13,10 +13,11 @@
     "language": "Language"
   },
   "Hero": {
+    "h1Title": "Trusted Scrap & Old Furniture Buyer in Dammam – We Buy Used AC, Fridge, Washing Machine & Metal Scrap",
     "titlePart1": "We buy all types of scrap in ",
     "titlePart2": "Dammam",
     "titlePart3": " at the best price",
-    "description": "Specialized in buying all types of scrap, copper, and aluminum in any quantity. We provide free inspection and loading with instant and rewarding cash payment!",
+    "description": "Looking for the best scrap & old furniture buyer in Dammam? We buy old AC, metal scrap, fridge, and washing machines for instant cash. Contact us today!",
     "whatsappButton": "Contact via WhatsApp",
     "callButton": "Call Now",
     "feature1": "Best Market Price",
@@ -212,27 +213,23 @@
   },
   "FAQ": {
     "title": "Frequently Asked Questions",
-    "description": "Everything you need to know about the used furniture purchasing and moving service.",
+    "description": "Everything you need to know about our scrap and old furniture purchasing services in Dammam.",
     "items": [
       {
-        "q": "Do you buy all types of furniture?",
-        "a": "Yes, we buy bedrooms, kitchens, electrical appliances, A/Cs, majlis, and office furniture."
+        "q": "Do you buy old scrap and used furniture ?",
+        "a": "Yes, we buy all types of scrap and used furniture, including metal scrap, old AC units, fridges, washing machines, and household furniture. Our team visits your location for free inspection and offers instant cash on the spot"
       },
       {
-        "q": "How is the furniture price determined?",
-        "a": "Our representative visits you to inspect the furniture, evaluates it based on its condition and usability, and gives you the best market price."
+        "q": "What types of scrap do you accept?",
+        "a": "We accept metal scrap, old air conditioners, refrigerators, washing machines, and used furniture in any condition. Whether it's damaged, unused, or simply old, we provide a fair evaluation before making an offer."
       },
       {
-        "q": "Is the inspection and dismantling service free?",
-        "a": "Absolutely. The inspection is completely free. If an agreement is reached, we cover all dismantling and moving costs."
+        "q": "How is the price for scrap or furniture determined?",
+        "a": "Our representative inspects the item in person, checks its condition and material, and gives you the best market price based on current rates in Dammam. There are no hidden charges or deductions."
       },
       {
-        "q": "When is the furniture value paid?",
-        "a": "Payment is made in cash immediately upon agreement and receiving the furniture."
-      },
-      {
-        "q": "Do you provide house moving services?",
-        "a": "Yes, we provide furniture and house moving with dismantling, installation, and packaging depending on the agreement. Check the 'Moving' section at the top of the page or contact us."
+        "q": "Which areas do you cover for buying scrap and old furniture?",
+        "a": "We provide our professional scrap and old furniture buying services all across the Eastern Province. Our team offers fast doorstep pickup, dismantling, and instant cash payments in Dammam, Khobar, Qatif, Jubail, and Al-Ahsa. No matter where you are located in these cities, just give us a call, and we will reach your location setup in no time."
       }
     ]
   },
