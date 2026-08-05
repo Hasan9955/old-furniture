@@ -3,8 +3,19 @@ import { images } from "@/components/imageImporter";
 export interface ServiceDetailItem {
   slug: string;
   image: any;
+  seoTitle?: { en: string; ar: string };
+  metaDescription?: { en: string; ar: string };
+  h1Title?: { en: string; ar: string };
+  overviewTitle?: { en: string; ar: string };
+  acceptedItemsTitle?: { en: string; ar: string };
+  acceptedItemsFooter?: { en: string; ar: string };
+  aboutService?: { en: string; ar: string };
   acceptedItems: { en: string[]; ar: string[] };
   features: { en: string[]; ar: string[] };
+  processSteps?: {
+    en: { title: string; desc: string }[];
+    ar: { title: string; desc: string }[];
+  };
   longDescription: { en: string; ar: string };
   faq: {
     en: { question: string; answer: string }[];
@@ -16,61 +27,125 @@ export const serviceDetailsData: Record<string, ServiceDetailItem> = {
   "ac-scrap": {
     slug: "ac-scrap",
     image: images.airCondition1,
+    seoTitle: {
+      en: "Old & Scrap AC Buyer in Dammam | Sell Used Air Conditioners for Cash",
+      ar: "مشتري سكراب ومكيفات مستعملة في الدمام | بيع مكيفك بأعلى سعر كاش"
+    },
+    metaDescription: {
+      en: "Looking for a scrap AC buyer in Dammam? We buy old, damaged, and used air conditioners for the best price with free inspection and instant cash. Contact us today!",
+      ar: "هل تبحث عن مشتري سكراب مكيفات في الدمام؟ نشتري جميع أنواع المكيفات القديمة والتالفة بأفضل الأسعار، مع معاينة مجانية ونقل ودفع كاش فوراً. اتصل بنا اليوم!"
+    },
+    h1Title: {
+      en: "Old & Scrap AC Buyer in Dammam – Sell Your Used Air Conditioner for Instant Cash",
+      ar: "مشتري سكراب ومكيفات مستعملة في الدمام – بيع مكيفك القديم واحصل على كاش فوراً"
+    },
+    overviewTitle: {
+      en: "Trusted Old & Scrap AC Buyer in Dammam",
+      ar: "مشتري موثوق للسكراب والمكيفات المستعملة في الدمام"
+    },
+    longDescription: {
+      en: "Have an old air conditioner sitting unused or damaged at home? We are a trusted scrap AC buyer in Dammam, purchasing split, window, and central units in any condition — working or not. Whether it's outdated, broken, or simply no longer needed, we offer a fair price and free pickup.",
+      ar: "هل لديك مكيف قديم متعطل أو غير مستخدم في المنزل؟ نحن مشتري موثوق لسكراب المكيفات في الدمام، نشتري المكيفات السبلت، الشباك، والمركزية بأي حالة كانت — سواء كانت شغالة أو عطلانة. سواء كان مكيفك قديماً، أو تالفاً، أو لم تعد بحاجة إليه، فنحن نقدم لك السعر العادل مع خدمة التحميل والنقل مجاناً."
+    },
+    acceptedItemsTitle: {
+      en: "We Buy All Types of Used & Damaged AC Units",
+      ar: "نشتري جميع أنواع المكيفات المستعملة والتالفة"
+    },
     acceptedItems: {
       en: [
-        "Split AC units (Indoor & Outdoor units)",
-        "Window Air Conditioners (all sizes)",
-        "Central & Package HVAC Systems",
-        "Chiller & Industrial Cooling Towers",
-        "Damaged AC Compressors & Copper Pipes",
-        "Ducting & Aluminum Grilles"
+        "Old air conditioners no longer in use",
+        "Damaged or non-functional AC units",
+        "Split and window AC systems",
+        "Central cooling units from homes and offices",
+        "Commercial AC scrap from shops and warehouses"
       ],
       ar: [
-        "مكيفات سبليت (الوحدات الداخلية والخارجية)",
-        "مكيفات شباك بكافة الأحجام والمقاسات",
-        "أنظمة التكييف المركزي والباكج",
-        "شيلرات وأبراج التبريد الصناعية",
-        "كمبروسرات المكيفات التالفة ومواسير النحاس",
-        "مجاري الهواء (الدكت) وشباك الألمنيوم"
+        "المكيفات القديمة التي لم تعد قيد الاستخدام",
+        "أجهزة التكييف التالفة أو المتعطلة عن العمل",
+        "أنظمة المكيفات السبلت والشباك",
+        "وحدات التكييف المركزية للمنازل والمكاتب",
+        "سكراب المكيفات التجارية للمحلات والمستودعات"
       ]
+    },
+    acceptedItemsFooter: {
+      en: "From a single household unit to bulk commercial scrap, we handle pickups of any size across Dammam.",
+      ar: "سواء كان لديك مكيف منزل واحد أو كمية كبيرة من سكراب المكيفات للمنشآت التجارية، فنحن جاهزون ونغطي جميع مناطق الدمام."
     },
     features: {
       en: [
-        "Top Cash Offer Guarantee per unit or weight",
-        "Free Dismantling & Removal by experienced technicians",
-        "We buy in any condition: working, broken, or scrap",
-        "Immediate payment on the spot"
+        "Fair Pricing – Every unit is evaluated based on condition, size, and material, with no hidden deductions.",
+        "Free Inspection & Pickup – Inspection costs nothing, and once agreed, dismantling and pickup are on us.",
+        "Same-Day Service – In most cases, we visit, inspect, and close the deal the same day you contact us.",
+        "Instant Cash – Payment is made on the spot, in cash, with no delays."
       ],
       ar: [
-        "ضمان أعلى سعر كاش للوحدة أو بالوزن",
-        "فك وتحميل مجاني بواسطة فنيين مختصين",
-        "نشتري بجميع الحالات: شغال، معطل، أو سكراب هالك",
-        "دفع فوري في الموقع بدون تأخير"
+        "أسعار عادلة: نحدد قيمة كل مكيف بناءً على حالته وحجمه، بدون أي خصومات خفية.",
+        "معاينة ونقل مجاناً: لا توجد أي رسوم على المعاينة، وبمجرد الاتفاق، نتكفل بفك ونقل المكيف مجاناً بالكامل.",
+        "خدمة في نفس اليوم: في معظم الحالات، يزورك مندوبنا ويفحص المكيف وينهي الصفقة في نفس يوم اتصالك.",
+        "دفع كاش فوراً: يتم تسليم المبلغ نقداً (كاش) في موقعك فوراً وبدون أي تأخير."
       ]
     },
-    longDescription: {
-      en: "We are the leading buyer of air conditioner scrap in Dammam, Khobar, and Dhahran. Whether you have residential split and window AC units, or commercial central cooling systems, we offer transparent pricing based on the current market value of copper, aluminum, and scrap metals. Our team provides free on-site evaluation, fast dismantling, and immediate cash payment.",
-      ar: "نحن المؤسسة الرائدة في شراء سكراب المكيفات بالدمام والخبر والظهران. سواء كان لديك مكيفات سبليت وشباك منزلية أو أنظمة تكييف مركزي تجارية، نقدم لك أسعاراً عادلة وشفافة بناءً على أسعار السوق الحالية للنحاس والألمنيوم والمعادن. نوفر فريقاً مختصاً للفك والتحميل مجاناً مع دفع المبلغ كاش فوراً."
+    processSteps: {
+      en: [
+        { title: "1. Contact Us", desc: "Share details about your AC." },
+        { title: "2. Free Inspection", desc: "We assess the unit at your location." },
+        { title: "3. Get an Offer", desc: "A fair, market-based price is given." },
+        { title: "4. Instant Payment", desc: "Cash paid immediately, pickup handled by us." }
+      ],
+      ar: [
+        { title: "١. تواصل معنا", desc: "شاركنا تفاصيل ونوع المكيف لديك." },
+        { title: "٢. معاينة مجانية", desc: "نصل إلى موقعك لفحص حالة المكيف." },
+        { title: "٣. الحصول على عرض سعر", desc: "نقدم لك سعراً عادلاً ومناسباً لسعر السوق." },
+        { title: "٤. الدفع الفوري", desc: "نستلم المكيف ونقوم بنقله بعد دفع المبلغ لك كاش فوراً." }
+      ]
+    },
+    aboutService: {
+      en: "With years of experience as a reliable used AC buyer in Dammam, we're known for honest evaluation and quick, hassle-free service.",
+      ar: "بفضل خبرتنا الطويلة كمشتري موثوق للمكيفات المستعملة في الدمام، اشتهرنا بالأمانة في التقييم والسرعة في إنهاء المعاملات بدون أي تعقيد."
     },
     faq: {
       en: [
         {
-          question: "Do you provide dismantling services for central or window ACs?",
-          answer: "Yes! Our professional team carries out full dismantling, uninstallation, and transport free of charge."
+          question: "Do you buy non-working or completely damaged air conditioners?",
+          answer: "Yes, we purchase AC units in any condition, whether they're partially damaged, completely non-functional, or simply outdated."
         },
         {
-          question: "How do you calculate the price for AC scrap?",
-          answer: "We price AC scrap based on condition, tonnage/capacity, and component weight (copper coils, compressor, aluminum)."
+          question: "Is there any charge for inspection or pickup?",
+          answer: "No, inspection is completely free, and once a price is agreed upon, we handle pickup and dismantling at no extra cost."
+        },
+        {
+          question: "How is the price for a scrap AC determined?",
+          answer: "Pricing depends on the unit's size, type, and material condition. Our representative provides a fair evaluation upon inspection."
+        },
+        {
+          question: "Do you buy AC units from businesses as well as homes?",
+          answer: "Yes, we buy air conditioners from residential, commercial, and industrial locations across Dammam."
+        },
+        {
+          question: "How quickly can I get paid?",
+          answer: "Payment is made instantly in cash once the inspection is complete and both parties agree on the price."
         }
       ],
       ar: [
         {
-          question: "هل توفرون خدمة الفك والتحميل للمكيفات؟",
-          answer: "نعم! ينزل فريقنا المعتمد للموقع ويقوم بفك جميع أنواع المكيفات وشحنها بدون أي رسوم إضافية."
+          question: "هل تشترون المكيفات العطلانة أو التالفة بالكامل؟",
+          answer: "نعم، نحن نشتري المكيفات بأي حالة كانت، سواء كانت تالفة جزئياً، أو عطلانة تماماً، أو مجرد موديل قديم."
         },
         {
-          question: "كيف يتم حساب سعر سكراب المكيفات؟",
-          answer: "يتم تقييم السعر بناءً على نوع المكيف وحجمه وحالته، بالإضافة إلى وزن النحاس والألمنيوم الموجود فيه."
+          question: "هل هناك أي رسوم على المعاينة أو النقل؟",
+          answer: "لا، المعاينة مجانية تماماً، وبمجرد الاتفاق على السعر، نتكفل بفك ونقل المكيف دون أي تكلفة إضافية عليك."
+        },
+        {
+          question: "كيف يتم تحديد سعر سكراب المكيفات؟",
+          answer: "يعتمد السعر على حجم المكيف، نوعه، وحالة المواد المصنوع منها. يقدم لك مندوبنا تقييماً عادلاً ومناسباً عند المعاينة."
+        },
+        {
+          question: "هل تشترون المكيفات من الشركات والمحلات كما تشترونها من المنازل؟",
+          answer: "نعم، نشتري المكيفات من القطاعات السكنية، التجارية، والصناعية في جميع أنحاء الدمام."
+        },
+        {
+          question: "ما هي سرعة استلام المبلغ؟",
+          answer: "يتم تسليم المبلغ فوراً نقداً (كاش) بمجرد انتهاء المعاينة والاتفاق على السعر بين الطرفين."
         }
       ]
     }

@@ -119,7 +119,7 @@ export default async function BlogDetailPage({
             </nav>
           </div>
         </div>
-
+    
         {/* ── Article Header ───────────────────────────────────────── */}
         <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12">
           

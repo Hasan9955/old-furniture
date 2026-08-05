@@ -55,11 +55,11 @@ export async function generateMetadata({
     };
   }
 
-  const title = isArabic
+  const title = serviceDetail.seoTitle?.[lang] || (isArabic
     ? `${dictItem.title} بالدمام | أفضل سعر وكاش فوري`
-    : `${dictItem.title} in Dammam | Best Price & Instant Cash`;
+    : `${dictItem.title} in Dammam | Best Price & Instant Cash`);
 
-  const description = serviceDetail.longDescription[lang] || dictItem.description;
+  const description = serviceDetail.metaDescription?.[lang] || serviceDetail.longDescription[lang] || dictItem.description;
   const canonicalUrl = `https://www.buyoldscrapdammam.com/${lang}/services/${slug}`;
 
   return {
@@ -116,12 +116,12 @@ export default async function ServiceDetailPage({
     .filter((item: any) => item.slug !== slug)
     .slice(0, 3);
 
-  // Structured Data (JSON-LD) for SEO
-  const jsonLd = {
+  // Structured Data (JSON-LD) for Service
+  const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": dictItem.title,
-    "description": serviceDetail.longDescription[lang],
+    "name": serviceDetail.h1Title?.[lang] || dictItem.title,
+    "description": serviceDetail.metaDescription?.[lang] || serviceDetail.longDescription[lang],
     "provider": {
       "@type": "LocalBusiness",
       "name": isArabic ? "مؤسسة شراء السكراب بالدمام" : "Dammam Scrap Buyers",
@@ -141,7 +141,21 @@ export default async function ServiceDetailPage({
     }
   };
 
-  const processSteps = isArabic ? [
+  // Structured Data (JSON-LD) for FAQ
+  const faqJsonLd = serviceDetail.faq[lang]?.length ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": serviceDetail.faq[lang].map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  } : null;
+
+  const processSteps = serviceDetail.processSteps?.[lang] || (isArabic ? [
     { title: "١. التواصل والاستفسار", desc: "تواصل معنا عبر الاتصال أو الواتساب وأرسل صور الكمية." },
     { title: "٢. الفحص والوزن الميداني", desc: "ينزل فريقنا لموقعك بالدمام بفحص ويوزن السكراب بدقة." },
     { title: "٣. دفع الكاش الفوري", desc: "استلم أفضل مبلغ نقدي فوري بمجرد الاتفاق وقبل التحميل." },
@@ -151,14 +165,20 @@ export default async function ServiceDetailPage({
     { title: "2. On-Site Inspection", desc: "Our team arrives at your location in Dammam for precise weighing." },
     { title: "3. Instant Cash Payment", desc: "Receive immediate top cash payment on the spot upon agreement." },
     { title: "4. Free Haulage & Removal", desc: "We load and transport everything without charging any extra fees." }
-  ];
+  ]);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <Navbar dict={dict} lang={lang} />
       
       <main className="min-h-screen bg-slate-50 pt-20 pb-20">
@@ -194,16 +214,16 @@ export default async function ServiceDetailPage({
           </div>
 
           <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto max-w-4xl text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold text-emerald-400 backdrop-blur-md sm:text-sm">
                 <Sparkles className="h-4 w-4 text-emerald-400" />
                 {dict.Navbar.logoScrap} {dict.Navbar.logoDammam} - Top Scrap Rates
               </span>
-              <h1 className="mt-6 text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
-                {dictItem.title}
+              <h1 className="mt-6 text-2xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight sm:leading-tight">
+                {serviceDetail.h1Title?.[lang] || dictItem.title}
               </h1>
               <p className="mt-4 text-base text-slate-300 sm:text-xl lg:text-2xl leading-relaxed">
-                {dictItem.description}
+                {serviceDetail.metaDescription?.[lang] || dictItem.description}
               </p>
 
               {/* CTAs */}
@@ -239,7 +259,7 @@ export default async function ServiceDetailPage({
               {/* Detailed Description */}
               <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
                 <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-                  {isArabic ? `تفاصيل خدمة ${dictItem.title}` : `Overview of ${dictItem.title}`}
+                  {serviceDetail.overviewTitle?.[lang] || (isArabic ? `تفاصيل خدمة ${dictItem.title}` : `Overview of ${dictItem.title}`)}
                 </h2>
                 <p className="mt-4 text-slate-600 text-lg leading-relaxed">
                   {serviceDetail.longDescription[lang]}
@@ -248,10 +268,10 @@ export default async function ServiceDetailPage({
 
               {/* Accepted Items */}
               <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
-                <h3 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6 flex items-center gap-3">
+                <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6 flex items-center gap-3">
                   <CheckCircle2 className="h-7 w-7 text-emerald-500" />
-                  {dict.Services.acceptedItemsTitle}
-                </h3>
+                  {serviceDetail.acceptedItemsTitle?.[lang] || dict.Services.acceptedItemsTitle}
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {serviceDetail.acceptedItems[lang].map((item: string, idx: number) => (
                     <div key={idx} className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 border border-slate-100">
@@ -262,13 +282,18 @@ export default async function ServiceDetailPage({
                     </div>
                   ))}
                 </div>
+                {serviceDetail.acceptedItemsFooter?.[lang] && (
+                  <p className="mt-6 text-slate-600 text-base border-t border-slate-100 pt-4 font-medium leading-relaxed">
+                    {serviceDetail.acceptedItemsFooter[lang]}
+                  </p>
+                )}
               </div>
 
               {/* Why Choose Us */}
               <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
-                <h3 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6">
-                  {dict.Services.whyChooseUs}
-                </h3>
+                <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6">
+                  {isArabic ? "لماذا تختارنا؟" : "Why Choose Us"}
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {serviceDetail.features[lang].map((feat: string, idx: number) => {
                     const featureIcons = [
@@ -277,13 +302,34 @@ export default async function ServiceDetailPage({
                       <ShieldCheck key={2} className="h-6 w-6 text-emerald-600" />,
                       <Scale key={3} className="h-6 w-6 text-emerald-600" />
                     ];
+                    
+                    // Format features if they contain delimiters like " – " or ": "
+                    let titlePart = "";
+                    let bodyPart = feat;
+                    if (feat.includes(" – ")) {
+                      const parts = feat.split(" – ");
+                      titlePart = parts[0];
+                      bodyPart = parts.slice(1).join(" – ");
+                    } else if (feat.includes(": ")) {
+                      const parts = feat.split(": ");
+                      titlePart = parts[0];
+                      bodyPart = parts.slice(1).join(": ");
+                    }
+
                     return (
                       <div key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100">
-                        <div className="rounded-xl bg-white p-3 shadow-sm border border-emerald-100">
+                        <div className="rounded-xl bg-white p-3 shadow-sm border border-emerald-100 shrink-0">
                           {featureIcons[idx % featureIcons.length]}
                         </div>
                         <div>
-                          <p className="font-bold text-slate-800 text-base">{feat}</p>
+                          {titlePart ? (
+                            <>
+                              <p className="font-bold text-slate-900 text-base">{titlePart}</p>
+                              <p className="text-slate-600 text-sm mt-1">{bodyPart}</p>
+                            </>
+                          ) : (
+                            <p className="font-bold text-slate-800 text-base">{feat}</p>
+                          )}
                         </div>
                       </div>
                     );
@@ -294,9 +340,9 @@ export default async function ServiceDetailPage({
               {/* Process Section */}
               <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-lg">
                 <div className="mb-8 text-center sm:text-left rtl:sm:text-right">
-                  <h3 className="text-2xl font-black text-white sm:text-3xl">
-                    {dict.Services.processTitle}
-                  </h3>
+                  <h2 className="text-2xl font-black text-white sm:text-3xl">
+                    {isArabic ? "كيف تعمل خدمتنا؟" : "How It Works"}
+                  </h2>
                   <p className="mt-2 text-slate-400">
                     {dict.Services.processSubtitle}
                   </p>
@@ -314,18 +360,33 @@ export default async function ServiceDetailPage({
                 </div>
               </div>
 
+              {/* About Service / Experience Box */}
+              {serviceDetail.aboutService?.[lang] && (
+                <div className="rounded-3xl bg-emerald-50 border border-emerald-200/60 p-8 shadow-sm">
+                  <h3 className="text-xl font-bold text-emerald-950 sm:text-2xl mb-3">
+                    {isArabic ? "عن خدمتنا في الدمام" : "About Our Service"}
+                  </h3>
+                  <p className="text-emerald-900 text-base sm:text-lg leading-relaxed font-medium">
+                    {serviceDetail.aboutService[lang]}
+                  </p>
+                </div>
+              )}
+
               {/* FAQs */}
               {serviceDetail.faq[lang] && serviceDetail.faq[lang].length > 0 && (
                 <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
-                  <h3 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6 flex items-center gap-3">
+                  <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6 flex items-center gap-3">
                     <HelpCircle className="h-7 w-7 text-emerald-500" />
-                    {isArabic ? "أسئلة شائعة حول الخدمة" : "Frequently Asked Questions"}
-                  </h3>
+                    {isArabic ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+                  </h2>
                   <div className="space-y-4">
                     {serviceDetail.faq[lang].map((item, idx) => (
                       <div key={idx} className="rounded-2xl bg-slate-50 p-6 border border-slate-100">
-                        <h4 className="font-bold text-slate-900 text-lg">{item.question}</h4>
-                        <p className="mt-2 text-slate-600">{item.answer}</p>
+                        <h3 className="font-bold text-slate-900 text-lg sm:text-xl flex items-center gap-2">
+                          <span className="h-2 w-2 rounded-full bg-emerald-500 shrink-0" />
+                          {item.question}
+                        </h3>
+                        <p className="mt-2 text-slate-600 leading-relaxed text-base">{item.answer}</p>
                       </div>
                     ))}
                   </div>
