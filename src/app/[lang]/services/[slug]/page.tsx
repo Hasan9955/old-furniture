@@ -15,7 +15,8 @@ import {
   ArrowRight,
   ArrowLeft,
   HelpCircle,
-  Sparkles
+  Sparkles,
+  MapPin
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -223,7 +224,7 @@ export default async function ServiceDetailPage({
                 {serviceDetail.h1Title?.[lang] || dictItem.title}
               </h1>
               <p className="mt-4 text-base text-slate-300 sm:text-xl lg:text-2xl leading-relaxed">
-                {serviceDetail.metaDescription?.[lang] || dictItem.description}
+                {serviceDetail.introParagraph?.[lang] || serviceDetail.metaDescription?.[lang] || dictItem.description}
               </p>
 
               {/* CTAs */}
@@ -256,22 +257,57 @@ export default async function ServiceDetailPage({
             {/* Main Content Area */}
             <div className="space-y-12 lg:col-span-8">
               
-              {/* Detailed Description */}
-              <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
-                <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-                  {serviceDetail.overviewTitle?.[lang] || (isArabic ? `تفاصيل خدمة ${dictItem.title}` : `Overview of ${dictItem.title}`)}
-                </h2>
-                <p className="mt-4 text-slate-600 text-lg leading-relaxed">
-                  {serviceDetail.longDescription[lang]}
-                </p>
-              </div>
+              {/* Coverage Section (when present) */}
+              {serviceDetail.coverageSection && (
+                <section className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
+                  <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl flex items-center gap-3">
+                    <MapPin className="h-7 w-7 text-emerald-600 shrink-0" />
+                    {serviceDetail.coverageSection.title[lang]}
+                  </h2>
+                  <p className="mt-4 text-slate-600 text-lg leading-relaxed">
+                    {serviceDetail.coverageSection.intro[lang]}
+                  </p>
+                  <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {serviceDetail.coverageSection.items[lang].map((city, idx) => (
+                      <div key={idx} className="flex items-center gap-3 rounded-2xl bg-emerald-50/60 px-4 py-3 border border-emerald-100/80">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white font-bold text-xs">
+                          •
+                        </span>
+                        <span className="font-bold text-slate-800 text-base">{city}</span>
+                      </div>
+                    ))}
+                  </div>
+                  {serviceDetail.coverageSection.footer?.[lang] && (
+                    <p className="mt-6 text-slate-700 text-base border-t border-slate-100 pt-4 font-medium leading-relaxed">
+                      {serviceDetail.coverageSection.footer[lang]}
+                    </p>
+                  )}
+                </section>
+              )}
+
+              {/* Detailed Description (for general services without custom coverage section) */}
+              {!serviceDetail.coverageSection && (
+                <section className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
+                  <h2 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
+                    {serviceDetail.overviewTitle?.[lang] || (isArabic ? `تفاصيل خدمة ${dictItem.title}` : `Overview of ${dictItem.title}`)}
+                  </h2>
+                  <p className="mt-4 text-slate-600 text-lg leading-relaxed">
+                    {serviceDetail.longDescription[lang]}
+                  </p>
+                </section>
+              )}
 
               {/* Accepted Items */}
-              <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
-                <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6 flex items-center gap-3">
-                  <CheckCircle2 className="h-7 w-7 text-emerald-500" />
+              <section className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
+                <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-4 flex items-center gap-3">
+                  <CheckCircle2 className="h-7 w-7 text-emerald-500 shrink-0" />
                   {serviceDetail.acceptedItemsTitle?.[lang] || dict.Services.acceptedItemsTitle}
                 </h2>
+                {serviceDetail.acceptedItemsIntro?.[lang] && (
+                  <p className="text-slate-600 text-base mb-6 leading-relaxed">
+                    {serviceDetail.acceptedItemsIntro[lang]}
+                  </p>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {serviceDetail.acceptedItems[lang].map((item: string, idx: number) => (
                     <div key={idx} className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 border border-slate-100">
@@ -287,12 +323,12 @@ export default async function ServiceDetailPage({
                     {serviceDetail.acceptedItemsFooter[lang]}
                   </p>
                 )}
-              </div>
+              </section>
 
-              {/* Why Choose Us */}
-              <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
+              {/* Why Choose Us / Trusted Buyer */}
+              <section className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
                 <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6">
-                  {isArabic ? "لماذا تختارنا؟" : "Why Choose Us"}
+                  {serviceDetail.featuresTitle?.[lang] || (isArabic ? "لماذا تختارنا؟" : "Why Choose Us")}
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {serviceDetail.features[lang].map((feat: string, idx: number) => {
@@ -303,10 +339,14 @@ export default async function ServiceDetailPage({
                       <Scale key={3} className="h-6 w-6 text-emerald-600" />
                     ];
                     
-                    // Format features if they contain delimiters like " – " or ": "
+                    // Format features if they contain delimiters like " — ", " – ", or ": "
                     let titlePart = "";
                     let bodyPart = feat;
-                    if (feat.includes(" – ")) {
+                    if (feat.includes(" — ")) {
+                      const parts = feat.split(" — ");
+                      titlePart = parts[0];
+                      bodyPart = parts.slice(1).join(" — ");
+                    } else if (feat.includes(" – ")) {
                       const parts = feat.split(" – ");
                       titlePart = parts[0];
                       bodyPart = parts.slice(1).join(" – ");
@@ -335,13 +375,13 @@ export default async function ServiceDetailPage({
                     );
                   })}
                 </div>
-              </div>
+              </section>
 
               {/* Process Section */}
-              <div className="rounded-3xl bg-slate-900 p-8 text-white shadow-lg">
+              <section className="rounded-3xl bg-slate-900 p-8 text-white shadow-lg">
                 <div className="mb-8 text-center sm:text-left rtl:sm:text-right">
                   <h2 className="text-2xl font-black text-white sm:text-3xl">
-                    {isArabic ? "كيف تعمل خدمتنا؟" : "How It Works"}
+                    {serviceDetail.processTitle?.[lang] || (isArabic ? "كيف تعمل خدمتنا؟" : "How It Works")}
                   </h2>
                   <p className="mt-2 text-slate-400">
                     {dict.Services.processSubtitle}
@@ -351,33 +391,83 @@ export default async function ServiceDetailPage({
                   {processSteps.map((step, idx) => (
                     <div key={idx} className="rounded-2xl bg-slate-800/80 p-6 border border-slate-700/60 backdrop-blur-sm">
                       <span className="text-xs font-black uppercase tracking-wider text-emerald-400">
-                        Step {idx + 1}
+                        {isArabic ? `الخطوة ${idx + 1}` : `Step ${idx + 1}`}
                       </span>
                       <h4 className="mt-2 text-lg font-bold text-white">{step.title}</h4>
                       <p className="mt-2 text-sm text-slate-300">{step.desc}</p>
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
+
+              {/* Pricing Section (when present) */}
+              {serviceDetail.pricingSection && (
+                <section className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
+                  <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-4">
+                    {serviceDetail.pricingSection.title[lang]}
+                  </h2>
+                  {serviceDetail.pricingSection.intro?.[lang] && (
+                    <p className="text-slate-600 text-base mb-6 leading-relaxed">
+                      {serviceDetail.pricingSection.intro[lang]}
+                    </p>
+                  )}
+                  {serviceDetail.pricingSection.items?.[lang] && serviceDetail.pricingSection.items[lang].length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {serviceDetail.pricingSection.items[lang].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-3 rounded-2xl bg-slate-50 p-4 border border-slate-100">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs">
+                            ✓
+                          </span>
+                          <span className="font-semibold text-slate-700">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {serviceDetail.pricingSection.paragraphs?.[lang] && serviceDetail.pricingSection.paragraphs[lang].length > 0 && (
+                    <div className="space-y-4">
+                      {serviceDetail.pricingSection.paragraphs[lang].map((para, idx) => {
+                        const [title, ...rest] = para.includes(": ") ? para.split(": ") : ["", para];
+                        return (
+                          <div key={idx} className="rounded-2xl bg-slate-50 p-5 border border-slate-100">
+                            {title ? (
+                              <>
+                                <h3 className="font-bold text-slate-900 text-base sm:text-lg">{title}:</h3>
+                                <p className="text-slate-600 text-base mt-1 leading-relaxed">{rest.join(": ")}</p>
+                              </>
+                            ) : (
+                              <p className="text-slate-600 text-base leading-relaxed">{para}</p>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {serviceDetail.pricingSection.footer?.[lang] && (
+                    <p className="mt-6 text-slate-700 text-base border-t border-slate-100 pt-4 font-semibold leading-relaxed">
+                      {serviceDetail.pricingSection.footer[lang]}
+                    </p>
+                  )}
+                </section>
+              )}
 
               {/* About Service / Experience Box */}
               {serviceDetail.aboutService?.[lang] && (
-                <div className="rounded-3xl bg-emerald-50 border border-emerald-200/60 p-8 shadow-sm">
+                <section className="rounded-3xl bg-emerald-50 border border-emerald-200/60 p-8 shadow-sm">
                   <h3 className="text-xl font-bold text-emerald-950 sm:text-2xl mb-3">
                     {isArabic ? "عن خدمتنا في الدمام" : "About Our Service"}
                   </h3>
                   <p className="text-emerald-900 text-base sm:text-lg leading-relaxed font-medium">
                     {serviceDetail.aboutService[lang]}
                   </p>
-                </div>
+                </section>
               )}
 
               {/* FAQs */}
               {serviceDetail.faq[lang] && serviceDetail.faq[lang].length > 0 && (
-                <div className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
+                <section className="rounded-3xl bg-white p-8 shadow-sm border border-slate-200">
                   <h2 className="text-xl font-bold text-slate-900 sm:text-2xl mb-6 flex items-center gap-3">
-                    <HelpCircle className="h-7 w-7 text-emerald-500" />
-                    {isArabic ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+                    <HelpCircle className="h-7 w-7 text-emerald-500 shrink-0" />
+                    {serviceDetail.faqTitle?.[lang] || (isArabic ? "الأسئلة الشائعة" : "Frequently Asked Questions")}
                   </h2>
                   <div className="space-y-4">
                     {serviceDetail.faq[lang].map((item, idx) => (
@@ -390,7 +480,36 @@ export default async function ServiceDetailPage({
                       </div>
                     ))}
                   </div>
-                </div>
+                </section>
+              )}
+
+              {/* Closing CTA */}
+              {serviceDetail.closingCta?.[lang] && (
+                <section className="rounded-3xl bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 p-8 text-white shadow-xl">
+                  <div className="text-center sm:text-left rtl:sm:text-right">
+                    <h3 className="text-xl sm:text-2xl font-black leading-snug">
+                      {serviceDetail.closingCta[lang]}
+                    </h3>
+                    <div className="mt-6 flex flex-wrap items-center justify-start gap-4">
+                      <a
+                        href="https://wa.me/+966565642655"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-base font-bold text-rose-700 shadow-lg transition-all hover:bg-rose-50 hover:scale-105"
+                      >
+                        <MessageCircle className="h-5 w-5 fill-rose-600 text-rose-600" />
+                        <span>{dict.Navbar.whatsapp}</span>
+                      </a>
+                      <a
+                        href="tel:+966565642655"
+                        className="inline-flex items-center gap-2 rounded-2xl bg-white/20 px-6 py-3.5 text-base font-bold text-white border border-white/30 backdrop-blur-md transition-all hover:bg-white hover:text-rose-900"
+                      >
+                        <Phone className="h-5 w-5" />
+                        <span dir="ltr">+966565642655</span>
+                      </a>
+                    </div>
+                  </div>
+                </section>
               )}
             </div>
 
