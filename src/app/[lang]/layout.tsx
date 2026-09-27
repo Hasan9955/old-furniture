@@ -76,6 +76,7 @@ export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
+
 export default async function RootLayout({
   children,
   params,
@@ -86,7 +87,11 @@ export default async function RootLayout({
   const { lang } = await params;
 
   return (
-    <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} className={`${cairo.variable} font-sans scroll-smooth`}>
+    <html
+      lang={lang}
+      dir={lang === 'ar' ? 'rtl' : 'ltr'}
+      className={`${cairo.variable} font-sans scroll-smooth`}
+    >
       <head>
         {/* Google Tag Manager */}
         <Script
@@ -97,22 +102,24 @@ export default async function RootLayout({
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KTNT8J4R');`,
+})(window,document,'script','dataLayer','GTM-W43422QZ');`,
           }}
         />
         {/* End Google Tag Manager */}
       </head>
+
       <body className="flex min-h-screen flex-col bg-slate-50 pb-24 text-slate-900 antialiased sm:pb-8">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KTNT8J4R"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W43422QZ"
             height="0"
             width="0"
-            style={{ display: "none", visibility: "hidden" }}
+            style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
+
         {children}
       </body>
     </html>
